@@ -1,5 +1,7 @@
 import React, { useEffect, useReducer } from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import Stats from '../components/Stats';
+import Gallary from '../components/Gallary';
 import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 
@@ -41,23 +43,34 @@ export default function HomeScreen() {
             <Helmet>
                 <title>Aman Clothing</title>
             </Helmet>
-            <h1>Featured Products</h1>
-            <div className="products">
-                {
-                    loading ? (
-                        <div>Loading...</div>
-                    ) : error ? (
-                        <div>{error}</div>
-                    ) : (
-                        products.map(product => (
-                            <div key={product.slug}>
-                                <Product duct product={product} />
-                            </div>
-                        )
-                        )
-                    )
-                }
+            <div className='home-page'>
+                <div>
+                    <section>
+                        <h1>Aman's Clothing</h1>
+                    </section>
+                </div>
             </div>
+            <div className="products">
+                <h1>Featured Products</h1>
+                <div>
+                    {
+                        loading ? (
+                            <div>Loading...</div>
+                        ) : error ? (
+                            <div>{error}</div>
+                        ) : (
+                            products.map(product => (
+                                <div key={product.slug}>
+                                    <Product duct product={product} />
+                                </div>
+                            )
+                            )
+                        )
+                    }
+                </div>
+            </div>
+            <Stats />
+            <Gallary />
         </div>
     )
 }

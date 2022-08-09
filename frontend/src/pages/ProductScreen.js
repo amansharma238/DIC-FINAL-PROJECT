@@ -62,13 +62,13 @@ export default function ProductScreen() {
             <div>{error}</div>
         ) : (
             <div id='product-screen'>
+                <Helmet>
+                    <title>{product.name}</title>
+                </Helmet>
                 <div>
                     <img src={product.image} alt={product.name} />
                 </div>
                 <div>
-                    <Helmet>
-                        <title>{product.name}</title>
-                    </Helmet>
                     <ul>
                         <li>
                             <h1>{product.name}</h1>
