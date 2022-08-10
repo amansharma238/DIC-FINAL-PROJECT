@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import BlogScreen from './pages/BlogScreen';
 import CartScreen from './pages/CartScreen';
 import HomeScreen from './pages/HomeScreen';
+import OrderScreen from './pages/OrderScreen';
 import PaymentMethodScreen from './pages/PaymentMethodScreen';
 import PlaceOrderScreen from './pages/PlaceOrderScreen';
 import ProductScreen from './pages/ProductScreen';
@@ -136,6 +137,7 @@ function App() {
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
             <Route path='/blogs' element={<BlogScreen />} />
             <Route path='/events' element={<SummitAndEventScreen />} />
+            <Route path='/order/:id' element={<OrderScreen />} />
           </Routes>
         </main>
         <footer>

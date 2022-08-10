@@ -33,63 +33,67 @@ export default function CartScreen() {
             <Helmet>
                 <title>Shopping Cart</title>
             </Helmet>
-            <h1>Shopping Cart</h1>
             <div className='cart'>
-                <div className='cart-screen'>
-                    {cartItems.length === 0 ? (
-                        <div className='message'>
-                            Cart is empty. <Link to="/">Go Shopping</Link>
-                        </div>
-                    ) : (
-                        <ul>
-                            {cartItems.map((item) => (
-                                <li key={item._id}>
-                                    <div>
-                                        <img
-                                            src={item.image}
-                                            alt={item.name}
-                                            className="img-thumbnail"
-                                        ></img>{' '}
-                                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
-                                    </div>
-
-                                    <div>
-                                        <button id='calculate-btn' onClick={() => updateCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
-                                            <i className='fas fa-minus-circle'></i>
-                                        </button>{' '}
-                                        <span>{item.quantity}</span>{' '}
-                                        <button id='calculate-btn' onClick={() => updateCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.countInStock}>
-                                            <i className='fas fa-plus-circle'></i>
-                                        </button>{' '}
-                                    </div>
-
-                                    <div>
-                                        <button id='calculate-btn' onClick={() => removeItemHandler(item)}>
-                                            <i className='fas fa-trash'></i>
-                                        </button>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
+                <h1>Shopping Cart</h1>
                 <div>
-                    <div className='card'>
-                        <h3>
-                            Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                            items) : $
-                            {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-                        </h3>
-                        <button
-                            type="button"
-                            onClick={checkoutHandler}
-                            disabled={cartItems.length === 0}
-                        >
-                            Proceed to Checkout
-                        </button>
+
+                    <div className='cart-screen'>
+                        {cartItems.length === 0 ? (
+                            <div className='message'>
+                                Cart is empty. <Link to="/">Go Shopping</Link>
+                            </div>
+                        ) : (
+                            <ul>
+                                {cartItems.map((item) => (
+                                    <li key={item._id}>
+                                        <div>
+                                            <img
+                                                src={item.image}
+                                                alt={item.name}
+                                                className="img-thumbnail"
+                                            ></img>{' '}
+                                            <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                                        </div>
+
+                                        <div>
+                                            <button id='calculate-btn' onClick={() => updateCartHandler(item, item.quantity - 1)} disabled={item.quantity === 1}>
+                                                <i className='fas fa-minus-circle'></i>
+                                            </button>{' '}
+                                            <span>{item.quantity}</span>{' '}
+                                            <button id='calculate-btn' onClick={() => updateCartHandler(item, item.quantity + 1)} disabled={item.quantity === item.countInStock}>
+                                                <i className='fas fa-plus-circle'></i>
+                                            </button>{' '}
+                                        </div>
+
+                                        <div>
+                                            <button id='calculate-btn' onClick={() => removeItemHandler(item)}>
+                                                <i className='fas fa-trash'></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                    <div>
+                        <div className='card'>
+                            <h3>
+                                Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
+                                items) : $
+                                {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                            </h3>
+                            <button
+                                type="button"
+                                onClick={checkoutHandler}
+                                disabled={cartItems.length === 0}
+                            >
+                                Proceed to Checkout
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }
