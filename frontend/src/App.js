@@ -9,6 +9,7 @@ import OrderScreen from './pages/OrderScreen';
 import PaymentMethodScreen from './pages/PaymentMethodScreen';
 import PlaceOrderScreen from './pages/PlaceOrderScreen';
 import ProductScreen from './pages/ProductScreen';
+import ProfilePage from './pages/ProfilePage';
 import ShippingAddressScreen from './pages/ShippingAddressScreen';
 import SigninScreen from './pages/SigninScreen';
 import SignupScreen from './pages/SignupScreen';
@@ -25,6 +26,7 @@ function App() {
     localStorage.removeItem('userDetail');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('payMethod');
+    window.location.href = '/signin';
   }
 
   const showContent = () => {
@@ -107,8 +109,8 @@ function App() {
                 <i className="fa fa-caret-down"></i>
               </button>
               <div className="dropdown-content" id="mynewDropdown">
-                <Link to='/profile'>User Profile</Link>
-                <Link to='/orderhistory'>Order History</Link>
+                <Link to='/user-profile'>User Profile</Link>
+                <Link to='/order-history'>Order History</Link>
                 <Link to='#signout' onClick={signoutHandler}>Sign Out</Link>
               </div>
             </div>
@@ -138,6 +140,7 @@ function App() {
             <Route path='/blogs' element={<BlogScreen />} />
             <Route path='/events' element={<SummitAndEventScreen />} />
             <Route path='/order/:id' element={<OrderScreen />} />
+            <Route path='/user-profile' element={<ProfilePage />} />
           </Routes>
         </main>
         <footer>

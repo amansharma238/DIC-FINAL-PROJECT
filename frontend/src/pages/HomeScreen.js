@@ -4,6 +4,7 @@ import Stats from '../components/Stats';
 import Gallary from '../components/Gallary';
 import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
+import DeveloperTeam from '../components/DeveloperTeam';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -71,6 +72,7 @@ export default function HomeScreen() {
             </div>
             <Stats />
             <Gallary />
+            <DeveloperTeam />
         </div>
     )
 }

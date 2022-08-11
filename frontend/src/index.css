@@ -586,6 +586,53 @@ footer {
   transform: scale(1.05);
 }
 
+.developer-section {
+  margin: 1rem;
+}
+
+.developer-section h1 {
+  text-align: center;
+}
+
+.developer-section>div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.developer {
+  background-color: rgb(251, 246, 246);
+  height: 18rem;
+  width: 16rem;
+  box-shadow: 1px 2px 4px rgba(164, 249, 249, 0.4);
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.developer h3 {
+  text-align: center;
+}
+
+.developer>div {
+  width: 5rem;
+  height: 5rem;
+  background-color: rgb(210, 207, 207);
+  border-radius: 2.5rem;
+  padding: 0.25rem;
+  margin: 0 auto;
+}
+
+.developer>p:nth-of-type(1) {
+  text-align: center;
+}
+
+.developer img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 2.5rem;
+}
+
 
 .home-page {
   background-image: url("../public/images/home1.jpg");
